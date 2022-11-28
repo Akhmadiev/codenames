@@ -1,0 +1,36 @@
+.preparation-block {
+    padding-top: 5vh;
+    padding-left: 10vw;
+    width: 50vw;
+    display: inline-block;
+    font-size: 1.5em;
+    position: fixed;
+    height: 100vh;
+    overflow: auto;
+}
+
+.preparation-block-red {
+    background-color: rgb(255, 126, 126, 0.3);
+}
+
+.preparation-block-blue {
+    background-color: rgb(68, 153, 250, 0.3);
+    left: 50vw;
+}
+
+.preparation-block button {
+    background-color: #90EE90;
+    width:30vw;
+    height: 8vh;
+}
+
+.preparation-captain {
+    font-size: 1.5em;
+}
+
+.preparation-player {
+    font-size: 1em;
+    display: block;
+    font-weight: bold;
+    padding-left: 1vw;
+}
