@@ -4,8 +4,6 @@ function UseLongPress(
     onLongPress,
     { shouldPreventDefault = true, delay = 300 } = {}
 ) {
-    debugger
-
     const start = useCallback(
         event => {
             setTimeout(() => {

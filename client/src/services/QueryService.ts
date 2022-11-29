@@ -92,7 +92,6 @@ export const QueryService = {
 		const createdWords = [] as string[];
 		for (let i = 0; i < 25; i++){
 			let newWord = null as any;
-			debugger;
 			newWord = await this.generateWord();
 			let word = newWord?.data as IWord;
 
