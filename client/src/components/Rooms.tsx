@@ -8,12 +8,15 @@ import { IRoom } from '../models/IRoom';
 import NewRoom from './NewRoom';
 import '../css/Rooms.css';
 import { Link } from 'react-router-dom';
+import SocketContext from '../core/SocketContext';
 
 function Rooms() {
+    const { socket } = useContext(SocketContext);
     const [data, setData] = useState({});
     const roomQuery = useQuery('words', () => QueryService.getRooms(), {
         onSuccess(response) {
             setData(response.data);
+            socket.emit('refetch', response.data);
         }
     });
 

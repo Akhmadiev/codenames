@@ -127,11 +127,13 @@ function Room() {
                         <button
                             key={word.id}
                             disabled={word.checked || isCaptain}
-                            className='word wordtest'
+                            className='word'
                             onTouchStart={() => handleOnTouchStart(word)}
-                            onTouchEnd={handleOnTouchEnd}
+                            onTouchEnd={function () { clearTimeout(timerRef.current); }}
                             onMouseDown={() => handleOnMouseDown(word)}
-                            onMouseUp={handleOnMouseUp}
+                            onMouseUp={function () { clearTimeout(timerRef.current); }}
+                            onTouchCancel={function () { clearTimeout(timerRef.current); }}
+                            onTouchMove={function () { clearTimeout(timerRef.current); }}
                             style={{
                                 backgroundColor: getWordBackgroundColor(isCaptain, word),
                                 color: (isCaptain || word.checked) && word.significance === Significance.Black ? 'white' : '',
