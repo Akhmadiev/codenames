@@ -39,7 +39,7 @@
 .room-red-players-btn {
     height: 7vh;
     line-height: 2vh;
-    font-size: 2vw;
+    font-size: 1.5vw;
     left: 20vw;
     width: 19.5vw;
     position: absolute;
@@ -65,7 +65,7 @@
 .room-blue-players-btn {
     height: 7vh;
     line-height: 2vh;
-    font-size: 2vw;
+    font-size: 1.5vw;
     right: calc(10vw + 10vw);
     width: calc(19.5vw);
     position: absolute;
