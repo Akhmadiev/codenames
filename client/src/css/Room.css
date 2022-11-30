@@ -34,6 +34,8 @@
     position: absolute;
     border-top-left-radius: 5%;
     border-bottom-left-radius: 5%;
+    border: 0.1vw solid black;
+    border-radius: 0.4vw;
 }
 
 .room-red-players-btn {
@@ -45,6 +47,16 @@
     position: absolute;
     background-color: rgb(255, 126, 126);
     text-align: center;
+    color: black;
+}
+
+.room-red-players-btn:hover {
+    background-color: rgb(255, 126, 126);
+    color: black;
+}
+
+.room-blue-players-btn:hover {
+    background-color: rgb(68, 153, 250);
     color: black;
 }
 
@@ -60,6 +72,8 @@
     position: absolute;
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
+    border: 0.1vw solid black;
+    border-radius: 0.4vw;
 }
 
 .room-blue-players-btn {
