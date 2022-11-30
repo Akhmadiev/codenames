@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { v4 } from 'uuid';
-import { IPlayer, IRoom, IUser } from '../models/IRoom';
+import { IRoom, IUser } from '../models/IRoom';
 import '../css/RoomPreparation.css';
 import { QueryService } from '../services/QueryService';
 import { useParams } from 'react-router-dom';

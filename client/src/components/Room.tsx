@@ -9,14 +9,12 @@ import '../css/Room.css'
 import { useMutation } from 'react-query';
 import { IRoom, IUser } from '../models/IRoom';
 import Cookies from 'universal-cookie';
-import { useLocation, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import DataContext from '../core/DataContext';
 import SocketContext from '../core/SocketContext';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLongPress } from 'use-long-press';
-import { TIMEOUT } from 'dns';
 
 function getWordBackgroundColor(isCaptain: boolean, word: IWord) {
     const black = 'rgb(58, 57, 57)';
@@ -37,17 +35,12 @@ function getWordBackgroundColor(isCaptain: boolean, word: IWord) {
     return white;
 }
 
-function longPress() {
-    
-}
-
 function Room() {
     const navigate = useNavigate();
     const { socket } = useContext(SocketContext);
     const { data, setData } = useContext(DataContext);
     const [redPlayersVisible, setRedPlayersVisible] = useState(false);
     const [bluePlayersVisible, setBluePlayersVisible] = useState(false);
-    const location = useLocation();
     const cookies = new Cookies();
     const userData = cookies.get('PlanningAuth') as IUser;
     const { id } = useParams();
@@ -72,7 +65,7 @@ function Room() {
             isLongPress.current = true;
             console.log('longpress');
             wordCheck.mutate(word.id)
-        }, 2000)
+        }, 1800)
     };
 
     function handleOnMouseDown(word: IWord) {
@@ -134,7 +127,7 @@ function Room() {
                         <button
                             key={word.id}
                             disabled={word.checked || isCaptain}
-                            className='word svg'
+                            className='word wordtest'
                             onTouchStart={() => handleOnTouchStart(word)}
                             onTouchEnd={handleOnTouchEnd}
                             onMouseDown={() => handleOnMouseDown(word)}
@@ -159,8 +152,8 @@ function Room() {
                 <div className='home-block'>
                     <button className="btn btn-outline-secondary fa fa-home home-btn" onClick={function () { navigate(`/rooms`); }}></button>
                 </div>
-                <h3 className="animate-charcter animate-charcter-blue" style={{visibility: roomData.finished && !roomData.redWins ? 'visible': 'hidden' }}>Булат петух</h3>
-                <h3 className="animate-charcter animate-charcter-red" style={{visibility: roomData.finished && roomData.redWins ? 'visible': 'hidden'}}>Булат петух</h3>
+                <h3 className="animate-charcter animate-charcter-blue" style={{visibility: roomData.finished && !roomData.redWins ? 'visible': 'hidden' }}>Blue wins</h3>
+                <h3 className="animate-charcter animate-charcter-red" style={{visibility: roomData.finished && roomData.redWins ? 'visible': 'hidden'}}>Red wins</h3>
             </div>
         </React.StrictMode>);
 }

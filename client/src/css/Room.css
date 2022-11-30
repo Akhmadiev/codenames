@@ -11,16 +11,21 @@
     border: thick double #716838;
     margin: 0.5vw;
     font-size: 1.5vw;
+    background-image: red;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .room {
-    height: 100vh
+    height: 100vh;
+    display: 'standalone';
 }
 
 .room-red-words-left{
     height: 7vh;
     line-height: 7vh;
-    font-size: 4vh;
+    font-size: 2vw;
     font-weight: bold;
     left: 12vw;
     width: 8vw;
@@ -33,8 +38,8 @@
 
 .room-red-players-btn {
     height: 7vh;
-    line-height: 6vh;
-    font-size: 3vh;
+    line-height: 2vh;
+    font-size: 2vw;
     left: 20vw;
     width: 19.5vw;
     position: absolute;
@@ -46,7 +51,7 @@
 .room-blue-words-left{
     height: 7vh;
     line-height: 7vh;
-    font-size: 4vh;
+    font-size: 2vw;
     font-weight: bold;
     right: 12vw;
     width: 8vw;
@@ -59,8 +64,8 @@
 
 .room-blue-players-btn {
     height: 7vh;
-    line-height: 6vh;
-    font-size: 3vh;
+    line-height: 2vh;
+    font-size: 2vw;
     right: calc(10vw + 10vw);
     width: calc(19.5vw);
     position: absolute;
@@ -85,7 +90,7 @@
   }
 
 .room-players-content p:first-child {
-    font-size: 2em;
+    font-size: 2vw;
     font-weight: bold;
     text-align: center;
     border-bottom: solid black;
@@ -94,21 +99,19 @@
 
 .room-red-player-content {
     text-align: center;
-    font-size: 2em;
+    font-size: 2vw;
 }
 
 .home-block {
-    font-size: 4.5em;
-    pointer-events: all;
+    font-size: 2vw;
 }
 
 .home-btn {
-    left: 47.5vw;
-    width: 5vw;
+    left: 45vw;
+    width: 10vw;
+    height: 7vh;
     position: absolute;
 }
-
-
 
 .animate-charcter
 {
@@ -116,7 +119,6 @@
     top: 0;
     width: 100vw;
     text-align: center;
-    text-transform: uppercase;
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
@@ -126,17 +128,17 @@
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
     display: inline-block;
-    font-size: 10em;
+    font-size: 5vw;
 }
 
 .animate-charcter-blue
 {
     background-image: linear-gradient(
         -225deg,
-        #231557 0%,
-        #44107a 29%,
-        #2424ff 67%,
-        #316fff 100%
+        #316ff1 0%,
+        #4f7de1 29%,
+        #185ff9 67%,
+        #0443cc 100%
       );
 }
 
@@ -145,16 +147,14 @@
     background-image: linear-gradient(
         -225deg,
         #a03e3e 0%,
-        #4f0000 29%,
-        #f45252 67%,
-        #9f0000 100%
+        #de3f3f 29%,
+        #a61a1a 67%,
+        #f20c0c 100%
     );
 }
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+  
 }
 
   .word:after {
@@ -162,29 +162,25 @@
     position: absolute;
     background-image: linear-gradient(
         -225deg,
-        #46ff52 0%,
+        #006620 0%,
         #00ba76 29%,
-        #006620 67%,
-        #8fffa9 100%
+        #00ba76 67%,
+        #00ba76 100%
       );
     bottom: 0;
     left: 0;
     right: 0;
     top: 100%;
     z-index: -2;
-    -webkit-transition: all 2s;
+    transition: all 1s;
   }
+  
   .word:active{
     border: 0px;
-    background-image: linear-gradient(
-        -225deg,
-        #46ff52 0%,
-        #00ba76 29%,
-        #006620 67%,
-        #8fffa9 100%
-      );
+    opacity: 0.5;
   }
   .word:active:after {
+    transition: all 2s;
     top: 0;
     background-image: linear-gradient(
         -225deg,
@@ -193,5 +189,5 @@
         #006620 67%,
         #8fffa9 100%
       );
-    opacity:1;
+    opacity:0.8;
   }
