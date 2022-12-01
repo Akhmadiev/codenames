@@ -30,7 +30,7 @@ function Rooms() {
         <React.StrictMode>
             <NewRoom />
             <div className='rooms'>
-                {roomData.map(room => <div key={room.id}>{new Date(room.createDate).toLocaleDateString()} { ' - ' } <Link to={`/${room.id}`}>{room.name}</Link></div>)}
+                {roomData.sort((a, b) => a.createDate > b.createDate ? -1 : 1).map(room => <div key={room.id}>{new Date(room.createDate).toLocaleDateString()} { ' - ' } <Link to={`/${room.id}`}>{room.name}</Link></div>)}
             </div>
         </React.StrictMode>);
 }
