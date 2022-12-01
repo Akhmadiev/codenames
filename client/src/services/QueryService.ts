@@ -26,7 +26,7 @@ export const QueryService = {
         return axios.get(`/rooms/${id}`);
 	},
 	
-	async wordCheck(roomId: string, wordId: number) {
+	async wordCheck(roomId: string, wordId: number, redMove: boolean) {
 		const room = await this.getRoom(roomId);
 		const roomData = room.data as IRoom;
 		
@@ -41,7 +41,7 @@ export const QueryService = {
 			roomData.finished = true;
 
 			if (blackFinished) {
-				roomData.redWins = !roomData.redMove;
+				roomData.redWins = !redMove;
 			} else {
 				roomData.redWins = redFinished;
 				roomData.redMove = redFinished;

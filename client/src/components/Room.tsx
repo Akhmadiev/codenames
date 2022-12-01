@@ -52,7 +52,10 @@ function Room() {
             setData(response.data);
         }
     });
-    const wordCheck = useMutation(async (wordId: number) => { return await QueryService.wordCheck(id as string, wordId); }, {
+    const wordCheck = useMutation(async (wordId: number) => {
+        const currentPlayer = roomData.players.filter(x => x.user.id === userData.id)[0];
+        return await QueryService.wordCheck(id as string, wordId, currentPlayer.isRedTeam);
+    }, {
         onSuccess: (response) => {
             setData(response.data);
             socket.emit('refetch', data.id);
@@ -109,8 +112,6 @@ function Room() {
     const blueCaptainName = roomData.players.filter(x => x.isCaptain && !x.isRedTeam)[0]?.user?.name;
     const redPlayers = roomData.players.filter(x => !x.isCaptain && x.isRedTeam).map(x => x.user);
     const bluePlayers = roomData.players.filter(x => !x.isCaptain && !x.isRedTeam).map(x => x.user);
-
-
 
     return (
         <React.StrictMode>
